@@ -1,0 +1,28 @@
+builds:
+- env:
+  - CGO_ENABLED=0
+  goos:
+    - linux
+    - darwin
+  goarch:
+    - 386
+    - amd64
+    - arm
+    - arm64
+checksum:
+  name_template: 'checksums.txt'
+snapshot:
+  name_template: "{{ .Tag }}-next"
+changelog:
+  sort: asc
+brew:
+  github:
+    owner: micnncim
+    name: homebrew-tap
+  folder: Formula
+  description: "selfupdate-playground"
+  homepage: "https://github.com/micnncim/selfupdate-playground"
+  install: |
+    bin.install "selfupdate-playground"
+  test: |
+    system "#{bin}/selfupdate-playground"
