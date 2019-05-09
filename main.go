@@ -11,7 +11,7 @@ import (
 	"github.com/rhysd/go-github-selfupdate/selfupdate"
 )
 
-const version = "0.1.0"
+const version = "0.1.3"
 
 func main() {
 	fmt.Println("hello")
@@ -32,7 +32,7 @@ func confirmAndSelfUpdate(current string) error {
 		return nil
 	}
 
-	fmt.Printf("current version: %s, latest version: %s", current, latest.Version)
+	fmt.Printf("current version: %s, latest version: %s\n", current, latest.Version)
 	fmt.Print("Do you want to update to", latest.Version, "? (y/n): ")
 	input, err := bufio.NewReader(os.Stdin).ReadString('\n')
 	if err != nil || (input != "y\n" && input != "n\n") {
